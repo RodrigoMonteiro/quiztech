@@ -1,10 +1,14 @@
 export interface Theme {
-  name: string,
-  properties: any
+  techName: string;
+  theme: string;
+  icon: string;
+  properties: any;
 }
 
 export const angularLight: Theme = {
-  name: 'angularLight',
+  techName: 'Angular',
+  theme: 'assets/images/lightTheme.png',
+  icon: 'assets/images/angularLogo.png',
   properties: {
     '--primary-background-color': '#003cb3',
     '--secondary-background-color': '#ff0000',
@@ -13,7 +17,9 @@ export const angularLight: Theme = {
   },
 };
 export const angularDark: Theme = {
-  name: 'angularDark',
+  techName: 'Angular',
+  theme: 'assets/images/darkTheme.png',
+  icon: 'assets/images/angularLogo.png',
   properties: {
     '--primary-background-color': '#003cb3',
     '--secondary-background-color': '#ff0000',
@@ -22,7 +28,9 @@ export const angularDark: Theme = {
   },
 };
 export const reactLight: Theme = {
-  name: 'reactLight',
+  techName: 'React',
+  theme: 'assets/images/lightTheme.png',
+  icon: 'assets/images/reactLogo.png',
   properties: {
     '--primary-background-color': '7cc5d9',
     '--secondary-background-color': '1c2c4c',
@@ -31,7 +39,9 @@ export const reactLight: Theme = {
   },
 };
 export const reactDark: Theme = {
-  name: 'reactDark',
+  techName: 'React',
+  theme: 'assets/images/darkTheme.png',
+  icon: 'assets/images/reactLogo.png',
   properties: {
     '--primary-background-color': '#7cc5d9',
     '--secondary-background-color': '#1c2c4c',
@@ -40,7 +50,9 @@ export const reactDark: Theme = {
   },
 };
 export const vueLight: Theme = {
-  name: 'vueLight',
+  techName: 'Vue',
+  theme: 'assets/images/lightTheme.png',
+  icon: 'assets/images/vueLogo.png',
   properties: {
     '--primary-background-color': '#42b883',
     '--secondary-background-color': '#35495e',
@@ -49,7 +61,9 @@ export const vueLight: Theme = {
   },
 };
 export const vueDark: Theme = {
-  name: 'vueDark',
+  techName: 'Vue',
+  theme: 'assets/images/darkTheme.png',
+  icon: 'assets/images/vueLogo.png',
   properties: {
     '--primary-background-color': '#42b883',
     '--secondary-background-color': '#35495e',
@@ -57,3 +71,12 @@ export const vueDark: Theme = {
     '--font-color': '#FFFFFF',
   },
 };
+
+export const allThemes = [
+  angularLight,
+  angularDark,
+  reactLight,
+  reactDark,
+  vueLight,
+  vueDark,
+];

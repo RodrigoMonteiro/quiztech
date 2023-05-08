@@ -1,30 +1,28 @@
-import { Component} from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  showSplashScreenContent: boolean = true;
+export class AppComponent implements OnInit {
+  showSplashScreenContent = true;
   title = 'quiztech';
 
   constructor(private router: Router, private route: ActivatedRoute) {}
 
-
-
-
-  async handleRedirectHomePage() {
-    await this.router.navigate(['home']);
-    // console.log(this.router.url);
-    // console.log(this.router.url.length > 1);
-    this.handleToggleShowRouterContent();
+  ngOnInit() {
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe((event) => {
+        const hasParams = this.router.url.length > 1;
+        this.showSplashScreenContent = !hasParams;
+      });
   }
 
-  handleToggleShowRouterContent() {
-    const hasParams = this.router.url.length > 1;
-    console.log(hasParams)
-    this.showSplashScreenContent = !hasParams;
+  handleRedirectHomePage() {
+    this.router.navigate(['home']);
   }
 }
