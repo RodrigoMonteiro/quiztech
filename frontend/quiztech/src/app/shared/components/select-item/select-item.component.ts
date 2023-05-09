@@ -6,7 +6,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./select-item.component.scss'],
 })
 export class SelectItemComponent {
-  @Input() name: string = 'test name';
-  @Input() tech: string = 'test tech';
-  @Input() theme: string = 'test theme';
+
+  @Input() name: string = '';
+  @Input() icon: string = '';
+  @Input() theme: string = '';
+
 }

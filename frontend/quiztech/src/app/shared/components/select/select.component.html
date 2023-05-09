@@ -1,10 +1,14 @@
-<!-- <ul>
-  <li *ngFor="let item of listThemeItems">
-    <button>
-      <span>{{ item.techName }}</span>
-      <img src="{{ item.icon }}" alt="icon" />
-      <img src="{{ item.theme }}" alt="theme" />
-    </button>
-  </li>
-</ul> -->
-<app-select-item></app-select-item>
+ <mat-form-field class="select-container" appearance="fill">
+  <mat-label>Select theme</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let item of listThemeItems" [value]="item.icon">
+      <!-- <app-select-item [name]="item.techName" [theme]="item.theme" [icon]="item.icon"></app-select-item> -->
+      <img src="{{item.icon}}" alt="icon">
+      <span>{{item.techName}}</span>
+     <img src="{{item.theme}}" alt="theme">
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+

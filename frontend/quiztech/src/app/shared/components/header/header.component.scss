@@ -1,0 +1,16 @@
+.header-container {
+  width: 100%;
+  height: 20%;
+  background-color: red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .header-title {
+    margin: 2%;
+  }
+
+  .header-btn-select {
+    margin: 2%;
+  }
+}
