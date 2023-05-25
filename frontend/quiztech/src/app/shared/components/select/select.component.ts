@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Theme, allThemes } from '../../../styles/theme/theme';
-
+import { ThemeService } from 'src/app/styles/theme/theme.service';
 
 @Component({
   selector: 'app-select',
@@ -8,11 +8,23 @@ import { Theme, allThemes } from '../../../styles/theme/theme';
   styleUrls: ['./select.component.scss'],
 })
 export class SelectComponent implements OnInit {
+
+  constructor(private themeService: ThemeService) {}
   listThemeItems: Theme[] = [];
 
   ngOnInit(): void {
-   this.listThemeItems = allThemes
-   console.log(this.listThemeItems)
+    this.listThemeItems = allThemes;
+  }
+  switchTheme(techName: string, theme: string) {
+    this.listThemeItems.forEach((e) =>
+      e.techName === techName && e.theme === theme
+        ? this.themeService.setTheme(e)
+        : ''
+    );
+    console.log(
+      'New theme is ',
+      this.themeService.currentTheme
+    );
   }
 
 

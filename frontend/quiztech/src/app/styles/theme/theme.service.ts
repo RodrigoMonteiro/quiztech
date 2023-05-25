@@ -8,15 +8,18 @@ import {
   vueLight,
   vueDark,
 } from './theme';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ThemeService {
-  private currentTheme: Theme = angularLight;
+  currentTheme: Theme = angularLight;
+  private themeChangedSubject = new Subject<Theme>();
+  themeChanged = this.themeChangedSubject.asObservable();
 
   constructor() {
-    this.applyTheme();
+    this.applyThemeProperties();
   }
 
   getThemes(): Theme[] {
@@ -30,17 +33,19 @@ export class ThemeService {
     ];
   }
 
-  setTheme(theme: Theme): void {
-    this.currentTheme = theme;
-    this.applyTheme();
-  }
-
-  private applyTheme(): void {
-    Object.keys(this.currentTheme.properties).forEach((property) => {
+  applyThemeProperties(): void {
+    const themeProperties = this.currentTheme.properties;
+    Object.keys(themeProperties).forEach((property) => {
       document.documentElement.style.setProperty(
         property,
-        this.currentTheme.properties[property]
+        themeProperties[property]
       );
     });
+  }
+
+  setTheme(theme: Theme): void {
+    this.currentTheme = theme;
+    this.themeChangedSubject.next(theme);
+    this.applyThemeProperties();
   }
 }

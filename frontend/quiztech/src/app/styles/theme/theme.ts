@@ -7,7 +7,7 @@ export interface Theme {
 
 export const angularLight: Theme = {
   techName: 'Angular',
-  theme: 'assets/images/lightTheme.png',
+  theme: 'Light',
   icon: 'assets/images/angularLogo.png',
   properties: {
     '--primary-background-color': '#003cb3',
@@ -18,7 +18,7 @@ export const angularLight: Theme = {
 };
 export const angularDark: Theme = {
   techName: 'Angular',
-  theme: 'assets/images/darkTheme.png',
+  theme: 'Dark',
   icon: 'assets/images/angularLogo.png',
   properties: {
     '--primary-background-color': '#003cb3',
@@ -29,18 +29,18 @@ export const angularDark: Theme = {
 };
 export const reactLight: Theme = {
   techName: 'React',
-  theme: 'assets/images/lightTheme.png',
+  theme: 'Light',
   icon: 'assets/images/reactLogo.png',
   properties: {
-    '--primary-background-color': '7cc5d9',
-    '--secondary-background-color': '1c2c4c',
+    '--primary-background-color': '#7cc5d9',
+    '--secondary-background-color': '#1c2c4c',
     '--default-background-color': '#FFFFFF',
     '--font-color': '#0d0d0d',
   },
 };
 export const reactDark: Theme = {
   techName: 'React',
-  theme: 'assets/images/darkTheme.png',
+  theme: 'Dark',
   icon: 'assets/images/reactLogo.png',
   properties: {
     '--primary-background-color': '#7cc5d9',
@@ -51,7 +51,7 @@ export const reactDark: Theme = {
 };
 export const vueLight: Theme = {
   techName: 'Vue',
-  theme: 'assets/images/lightTheme.png',
+  theme: 'Light',
   icon: 'assets/images/vueLogo.png',
   properties: {
     '--primary-background-color': '#42b883',
@@ -62,7 +62,7 @@ export const vueLight: Theme = {
 };
 export const vueDark: Theme = {
   techName: 'Vue',
-  theme: 'assets/images/darkTheme.png',
+  theme: 'Dark',
   icon: 'assets/images/vueLogo.png',
   properties: {
     '--primary-background-color': '#42b883',
