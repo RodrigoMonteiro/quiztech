@@ -10,8 +10,8 @@ export const angularLight: Theme = {
   theme: 'Light',
   icon: 'assets/images/angularLogo.png',
   properties: {
-    '--primary-background-color': '#003cb3',
-    '--secondary-background-color': '#ff0000',
+    '--primary-background-color': '#2325ad',
+    '--secondary-background-color': '#ff1717',
     '--default-background-color': '#ffffff',
     '--font-color': '#0d0d0d',
   },
@@ -21,8 +21,8 @@ export const angularDark: Theme = {
   theme: 'Dark',
   icon: 'assets/images/angularLogo.png',
   properties: {
-    '--primary-background-color': '#003cb3',
-    '--secondary-background-color': '#ff0000',
+    '--primary-background-color': '#2325ad',
+    '--secondary-background-color': '#ff1717',
     '--default-background-color': '#0d0d0d',
     '--font-color': '#FFFFFF',
   },

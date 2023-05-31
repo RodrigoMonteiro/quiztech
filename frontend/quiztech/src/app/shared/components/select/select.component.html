@@ -1,10 +1,10 @@
 <mat-form-field class="select-container" appearance="fill">
-  <mat-label>Select theme</mat-label>
-  <mat-select>
+  <mat-label >Select theme</mat-label>
+  <mat-select class="select-item">
     <!-- <app-select-item [name]="item.techName" [theme]="item.theme" [icon]="item.icon"></app-select-item> -->
     <mat-option
       *ngFor="let item of listThemeItems"
-      [value]="item.techName"
+     [value]="item.theme + ' ' + item.techName"
       (click)="switchTheme(item.techName, item.theme)"
     >
       <img src="{{ item.icon }}" alt="icon" />

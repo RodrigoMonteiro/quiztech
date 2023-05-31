@@ -1,5 +1,15 @@
 <app-header></app-header>
+<app-sidenav
+[btnAreaSelected]="selectedArea"
+[btnTechSelected]="selectedSubject"
+[btnDifficultSelected]="selectedDifficult"
+  (selectedAreaChange)="handleSelectedArea($event)"
+  (selectedSubjectChange)="handleSelectedSubject($event)"
+  (selectedDifficultChange)="handleSelectedDifficult($event)"
+></app-sidenav>
 <div class="home-container">
-  <p>home works!</p>
-<p>The current theme at the moment: {{ currentThemeName }}</p>
+  <p>home component here!</p>
+  <p>Area: {{selectedArea}}</p>
+  <p>Subject: {{selectedSubject}}</p>
+  <p>Difficult: {{selectedDifficult}}</p>
 </div>

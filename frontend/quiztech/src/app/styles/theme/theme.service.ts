@@ -22,6 +22,10 @@ export class ThemeService {
     this.applyThemeProperties();
   }
 
+  getCurrentTheme(): Theme {
+    return this.currentTheme
+  }
+
   getThemes(): Theme[] {
     return [
       angularLight,
@@ -48,4 +52,6 @@ export class ThemeService {
     this.themeChangedSubject.next(theme);
     this.applyThemeProperties();
   }
+
+
 }

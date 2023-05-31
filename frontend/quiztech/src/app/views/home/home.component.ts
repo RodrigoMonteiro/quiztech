@@ -8,8 +8,12 @@ import { ThemeService } from './../../styles/theme/theme.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
+
   currentThemeName: string = '';
-  private themeSubscription: Subscription = Subscription.EMPTY;
+  themeSubscription: Subscription = Subscription.EMPTY;
+  selectedArea: string = '';
+  selectedSubject: string = '';
+  selectedDifficult: string = '';
 
   constructor(private themeService: ThemeService) {}
 
@@ -20,6 +24,16 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.currentThemeName = theme.techName;
       }
     );
+  }
+
+  handleSelectedArea(area: string) {
+    this.selectedArea = area;
+  }
+  handleSelectedSubject(subject: string) {
+    this.selectedSubject = subject;
+  }
+  handleSelectedDifficult(difficult: string) {
+    this.selectedDifficult = difficult;
   }
 
   ngOnDestroy(): void {
