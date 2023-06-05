@@ -1,15 +1,65 @@
 <app-header></app-header>
 <app-sidenav
-[btnAreaSelected]="selectedArea"
-[btnTechSelected]="selectedSubject"
-[btnDifficultSelected]="selectedDifficult"
+  [btnAreaSelected]="selectedArea"
+  [btnTechSelected]="selectedSubject"
+  [btnDifficultSelected]="selectedDifficult"
   (selectedAreaChange)="handleSelectedArea($event)"
   (selectedSubjectChange)="handleSelectedSubject($event)"
   (selectedDifficultChange)="handleSelectedDifficult($event)"
 ></app-sidenav>
 <div class="home-container">
-  <p>home component here!</p>
-  <p>Area: {{selectedArea}}</p>
-  <p>Subject: {{selectedSubject}}</p>
-  <p>Difficult: {{selectedDifficult}}</p>
+  <div class="info-container">
+    <p
+      [ngClass]="
+        selectedArea !== ''
+          ? 'info-item info-selected'
+          : 'info-item info-not-selected'
+      "
+    >
+      Area: {{ selectedArea !== "" ? selectedArea : "Not selected" }}
+      <img
+        [src]="
+          selectedArea !== ''
+            ? 'assets/images/success-icon.png'
+            : 'assets/images/wrong-icon.png'
+        "
+        alt="icon"
+      />
+    </p>
+    <p
+      [ngClass]="
+        selectedSubject !== ''
+          ? 'info-item info-selected'
+          : 'info-item info-not-selected'
+      "
+    >
+      Subject: {{ selectedSubject !== "" ? selectedSubject : "Not selected" }}
+      <img
+        [src]="
+          selectedSubject !== ''
+            ? 'assets/images/success-icon.png'
+            : 'assets/images/wrong-icon.png'
+        "
+        alt="icon"
+      />
+    </p>
+    <p
+      [ngClass]="
+        selectedDifficult !== ''
+          ? 'info-item info-selected'
+          : 'info-item info-not-selected'
+      "
+    >
+      Difficult:
+      {{ selectedDifficult !== "" ? selectedDifficult : "Not selected" }}
+      <img
+        [src]="
+          selectedDifficult !== ''
+            ? 'assets/images/success-icon.png'
+            : 'assets/images/wrong-icon.png'
+        "
+        alt="icon"
+      />
+    </p>
+  </div>
 </div>

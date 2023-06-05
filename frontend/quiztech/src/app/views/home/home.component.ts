@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   handleSelectedArea(area: string) {
     this.selectedArea = area;
+    this.selectedSubject = ""
   }
   handleSelectedSubject(subject: string) {
     this.selectedSubject = subject;
