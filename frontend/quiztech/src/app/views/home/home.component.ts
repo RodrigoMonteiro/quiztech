@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   selectedArea: string = '';
   selectedSubject: string = '';
   selectedDifficult: string = '';
-  startQuiz: boolean = false;
+  startQuiz: boolean =false;
 
   constructor(private themeService: ThemeService) {}
 
