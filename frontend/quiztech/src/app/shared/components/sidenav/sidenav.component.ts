@@ -20,6 +20,7 @@ export class SidenavComponent {
   @Input() btnAreaSelected: string = '';
   @Input() btnTechSelected: string = '';
   @Input() btnDifficultSelected: string = '';
+  @Input() isStartedQuiz: boolean = false;
   @Output() selectedAreaChange = new EventEmitter<string>();
   @Output() selectedSubjectChange = new EventEmitter<string>();
   @Output() selectedDifficultChange = new EventEmitter<string>();

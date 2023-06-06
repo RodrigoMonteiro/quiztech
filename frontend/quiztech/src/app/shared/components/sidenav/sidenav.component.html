@@ -1,30 +1,104 @@
 <div class="sidenav-container">
   <div class="sidenav-item item-tech">
     <h3 style="text-align: center">1º Select the area</h3>
-    <div class="sidenav-btn-container">
-      <button *ngFor="let area of quizAreas" (click)="handleSelectedArea(area)" [ngClass]="btnAreaSelected === area ? 'sidenav-btn selected': 'sidenav-btn'">{{area}}</button>
+    <div
+      [ngClass]="
+        isStartedQuiz
+          ? 'sidenav-btn-container sidenav-btns-disabled'
+          : 'sidenav-btn-container'
+      "
+    >
+      <button
+        *ngFor="let area of quizAreas"
+        (click)="handleSelectedArea(area)"
+        [ngClass]="
+          btnAreaSelected === area ? 'sidenav-btn selected' : 'sidenav-btn'
+        "
+      >
+        {{ area }}
+      </button>
     </div>
   </div>
 
   <div class="sidenav-item item-subject">
     <h3>2º Select the tech</h3>
 
-    <div *ngIf="btnAreaSelected === 'Back-end'" class="sidenav-btn-container">
-      <button *ngFor="let tech of quizBackTechs" (click)="handleSelectedSubject(tech)"  [ngClass]="btnTechSelected === tech ? 'sidenav-btn selected': 'sidenav-btn'">{{tech}}</button>
+    <div
+      *ngIf="btnAreaSelected === 'Back-end'"
+      [ngClass]="
+        isStartedQuiz
+          ? 'sidenav-btn-container sidenav-btns-disabled'
+          : 'sidenav-btn-container'
+      "
+    >
+      <button
+        *ngFor="let tech of quizBackTechs"
+        (click)="handleSelectedSubject(tech)"
+        [ngClass]="
+          btnTechSelected === tech ? 'sidenav-btn selected' : 'sidenav-btn'
+        "
+      >
+        {{ tech }}
+      </button>
     </div>
-    <div *ngIf="btnAreaSelected === 'Front-end'" class="sidenav-btn-container">
-      <button *ngFor="let tech of quizFrontTechs"  (click)="handleSelectedSubject(tech)"  [ngClass]="btnTechSelected === tech ? 'sidenav-btn selected': 'sidenav-btn'">{{tech}}</button>
+    <div
+      *ngIf="btnAreaSelected === 'Front-end'"
+      [ngClass]="
+        isStartedQuiz
+          ? 'sidenav-btn-container sidenav-btns-disabled'
+          : 'sidenav-btn-container'
+      "
+    >
+      <button
+        *ngFor="let tech of quizFrontTechs"
+        (click)="handleSelectedSubject(tech)"
+        [ngClass]="
+          btnTechSelected === tech ? 'sidenav-btn selected' : 'sidenav-btn'
+        "
+      >
+        {{ tech }}
+      </button>
     </div>
-    <div *ngIf="btnAreaSelected === 'DevOps'" class="sidenav-btn-container">
-      <button *ngFor="let tech of quizDevOpsTechs"  (click)="handleSelectedSubject(tech)"  [ngClass]="btnTechSelected === tech ? 'sidenav-btn selected': 'sidenav-btn'">{{tech}}</button>
+    <div
+      *ngIf="btnAreaSelected === 'DevOps'"
+      [ngClass]="
+        isStartedQuiz
+          ? 'sidenav-btn-container sidenav-btns-disabled'
+          : 'sidenav-btn-container'
+      "
+    >
+      <button
+        *ngFor="let tech of quizDevOpsTechs"
+        (click)="handleSelectedSubject(tech)"
+        [ngClass]="
+          btnTechSelected === tech ? 'sidenav-btn selected' : 'sidenav-btn'
+        "
+      >
+        {{ tech }}
+      </button>
     </div>
   </div>
 
   <div class="sidenav-item item-dificult">
     <h3>3º Select the difficult</h3>
-    <div class="sidenav-btn-container">
-      <button *ngFor="let difficult of quizDifficults"  (click)="handleSelectedDifficult(difficult)"  [ngClass]="btnDifficultSelected === difficult ? 'sidenav-btn selected': 'sidenav-btn'">{{difficult}}</button>
+    <div
+      [ngClass]="
+        isStartedQuiz
+          ? 'sidenav-btn-container sidenav-btns-disabled'
+          : 'sidenav-btn-container'
+      "
+    >
+      <button
+        *ngFor="let difficult of quizDifficults"
+        (click)="handleSelectedDifficult(difficult)"
+        [ngClass]="
+          btnDifficultSelected === difficult
+            ? 'sidenav-btn selected'
+            : 'sidenav-btn'
+        "
+      >
+        {{ difficult }}
+      </button>
     </div>
   </div>
-
 </div>

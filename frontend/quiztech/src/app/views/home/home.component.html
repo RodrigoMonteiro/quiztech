@@ -1,5 +1,6 @@
 <app-header></app-header>
 <app-sidenav
+  [isStartedQuiz]="startQuiz"
   [btnAreaSelected]="selectedArea"
   [btnTechSelected]="selectedSubject"
   [btnDifficultSelected]="selectedDifficult"
@@ -63,11 +64,11 @@
     </p>
   </div>
   <app-card
-  (EmitStartQuiz)="handleStartQuiz()"
-  [startQuiz]="startQuiz"
-  [theme]="currentThemeName"
-  [btnAreaSelected]="selectedArea"
-  [btnTechSelected]="selectedSubject"
-  [btnDifficultSelected]="selectedDifficult"
+    (EmitStartQuiz)="handleStartQuiz()"
+    [startQuiz]="startQuiz"
+    [theme]="currentThemeName"
+    [btnAreaSelected]="selectedArea"
+    [btnTechSelected]="selectedSubject"
+    [btnDifficultSelected]="selectedDifficult"
   ></app-card>
 </div>
