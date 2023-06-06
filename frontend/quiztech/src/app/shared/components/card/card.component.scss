@@ -27,18 +27,18 @@
     background-color: transparent;
     border: 1px solid var(--font-color);
     border-radius: 5px;
+    cursor: pointer;
     color: var(--font-color);
 
     &:hover {
       transition: 0.3s;
       background-color: var(--primary-background-color);
-      cursor:pointer;
-       transform: translateY(-5px);
-
+      transform: translateY(-5px);
     }
-
-    .btn-not-ready{
-      cursor: not-allowed;
-    }
+  }
+  .btn-disabled{
+    pointer-events: none;
+    // cursor: not-allowed;
+    opacity: 0.4;
   }
 }

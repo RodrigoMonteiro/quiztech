@@ -1,4 +1,26 @@
 <div class="card-container">
-  <img class="image-card" src="assets/images/get-ready.png" alt="logo_card">
-  <button [ngClass]="" class="btn-start">Get start</button>
+  <ng-container *ngIf="startQuiz">
+    <app-question></app-question>
+  </ng-container>
+
+  <img
+    *ngIf="!startQuiz"
+    class="image-card"
+    [src]="
+      theme === 'Angular'
+        ? 'assets/images/ready-angular.png'
+        : theme === 'Vue'
+        ? 'assets/images/ready-vue.png'
+        : 'assets/images/ready-react.png'
+    "
+    alt="logo_card"
+  />
+
+  <button
+    *ngIf="!startQuiz"
+    [ngClass]="isButtonReady ? 'btn-start' : ' btn-start btn-disabled'"
+    (click)="handleSendStartQuiz()"
+  >
+    Get start
+  </button>
 </div>

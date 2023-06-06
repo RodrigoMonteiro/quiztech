@@ -6,6 +6,7 @@ import { SelectComponent } from './components/select/select.component';
 import { SelectItemComponent } from './components/select-item/select-item.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { CardComponent } from './components/card/card.component';
+import { QuestionComponent } from './components/question/question.component';
 
 
 
@@ -16,6 +17,7 @@ import { CardComponent } from './components/card/card.component';
     SelectItemComponent,
     SidenavComponent,
     CardComponent,
+    QuestionComponent,
   ],
   imports: [CommonModule, MaterialModule],
   exports: [

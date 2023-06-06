@@ -38,13 +38,18 @@
     border: 1px solid transparent;
   }
 
+  .sidenav-btn-disabled {
+    pointer-events: none;
+    // cursor: not-allowed;
+    opacity: 0.4;
+  }
+
   .sidenav-btn:hover {
     transition: 0.3s;
     background-color: var(--primary-background-color);
     transform: translateY(-3px);
     border: 1px solid var(--font-color);
     color: var(--font-color);
-
   }
 
   .sidenav-btn.selected {
