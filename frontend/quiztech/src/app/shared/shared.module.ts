@@ -5,18 +5,26 @@ import { HeaderComponent } from './components/header/header.component';
 import { SelectComponent } from './components/select/select.component';
 import { SelectItemComponent } from './components/select-item/select-item.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { CardComponent } from './components/card/card.component';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, SelectComponent, SelectItemComponent, SidenavComponent],
+  declarations: [
+    HeaderComponent,
+    SelectComponent,
+    SelectItemComponent,
+    SidenavComponent,
+    CardComponent,
+  ],
   imports: [CommonModule, MaterialModule],
   exports: [
     MaterialModule,
     HeaderComponent,
     SelectComponent,
     SelectItemComponent,
-    SidenavComponent
+    SidenavComponent,
+    CardComponent,
   ],
 })
 export class SharedModule {}

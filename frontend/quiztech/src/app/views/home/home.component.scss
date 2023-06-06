@@ -22,13 +22,14 @@
       padding-right: 5px;
       width: 25%;
       text-align: justify;
+      border-radius: 5px;
     }
     .info-selected{
-      border: 2px solid #78ca26;
+      border: 1px solid #78ca26;
       border-radius: 3px;
     }
     .info-not-selected{
-      border: 2px solid #ff1717;
+      border: 1px solid #ff1717;
       border-radius: 3px;
       box-shadow: 1px 1px 1px 1px 0.5;
     }
