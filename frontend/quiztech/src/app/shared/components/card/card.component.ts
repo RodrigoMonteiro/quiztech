@@ -10,7 +10,8 @@ export class CardComponent implements OnChanges {
   @Input() btnAreaSelected: string = '';
   @Input() btnTechSelected: string = '';
   @Input() btnDifficultSelected: string = '';
-  @Input() startQuiz: boolean = false;
+// HERE
+  @Input() startQuiz: boolean = true;
   @Output() EmitStartQuiz = new EventEmitter<boolean>();
 
   isButtonReady: boolean = false;
