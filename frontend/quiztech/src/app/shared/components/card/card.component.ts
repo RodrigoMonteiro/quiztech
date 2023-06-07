@@ -15,6 +15,7 @@ export class CardComponent implements OnChanges {
   @Output() EmitStartQuiz = new EventEmitter<boolean>();
 
   isButtonReady: boolean = false;
+  questionNumberIndex: number = 1
 
   ngOnChanges() {
     this.isButtonReady =

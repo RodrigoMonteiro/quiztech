@@ -1,8 +1,10 @@
 <div class="question-container">
+  <h3 class="question-number">{{questionNumber}}º.</h3>
   <div class="question-description">
     <p>{{ questionTest.text }}</p>
   </div>
   <div class="question-alternatives-container">
+    <h3 class="total-questions">{{questionNumber}}/10</h3>
     <button
       *ngFor="let alternative of questionTest.alternatives;  let i = index"
       (click)="handleNewSelectedAlternative(alternative)"

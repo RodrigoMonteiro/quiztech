@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Question, questionTest } from '../../model/questionTest';
 
 @Component({
@@ -7,6 +7,8 @@ import { Question, questionTest } from '../../model/questionTest';
   styleUrls: ['./question.component.scss'],
 })
 export class QuestionComponent {
+
+  @Input() questionNumber: number = 0
   alternativeSelected: string = '';
   questionTest: Question;
 
