@@ -1,0 +1,181 @@
+{
+  "text": "What is the purpose of the 'ngOnInit()' method in Angular?",
+  "area": "Front-end",
+  "subject": "Angular",
+  "difficult": "Beginner",
+  "answer": "The ngOnInit() method is a lifecycle hook that is executed after the component has been initialized and its inputs have been bound.",
+  "alternatives": [
+    "The ngOnInit() method is used to define routes in Angular.",
+    "The ngOnInit() method is used to handle HTTP requests in Angular.",
+    "The ngOnInit() method is used for form validation in Angular.",
+    "The ngOnInit() method is a lifecycle hook that is executed after the component has been initialized and its inputs have been bound.",
+    "The ngOnInit() method is a lifecycle hook that is executed before the component is rendered."
+  ]
+}
+
+{
+  "text": "What is the purpose of the 'POST' HTTP method?",
+  "area": "Back-end",
+  "subject": "Node",
+  "difficult": "Beginner",
+  "answer": "The 'POST' HTTP method is used to send data to the server to create a new resource.",
+  "alternatives": [
+    "The 'POST' HTTP method is used to retrieve data from the server.",
+    "The 'POST' HTTP method is used to update an existing resource on the server.",
+    "The 'POST' HTTP method is used to send data to the server to create a new resource.",
+    "The 'POST' HTTP method is used to delete a resource from the server.",
+    "The 'POST' HTTP method is used to authenticate the user."
+  ]
+}
+
+
+{
+  "text": "What is the purpose of Docker?",
+  "area": "DevOps",
+  "subject": "Docker",
+  "difficult": "Beginner",
+  "answer": "Docker is an open-source platform that allows you to automate the deployment, scaling, and management of applications using containerization.",
+  "alternatives": [
+    "Docker is an open-source platform that allows you to automate the deployment, scaling, and management of applications using containerization.",
+    "Docker is a version control system for managing code repositories.",
+    "Docker is a cloud computing platform for deploying serverless functions.",
+    "Docker is a programming language for building web applications.",
+    "Docker is a network protocol for secure communication between servers."
+  ]
+}
+
+ {
+  text: "What is the purpose of middleware in a Node.js application?",
+  area: "Back-end",
+  subject: "Node",
+  difficult: "Normal",
+  answer: "Middleware functions in a Node.js application are used to perform tasks that occur between receiving a request and sending a response. They can modify the request and response objects, execute code, or terminate the request-response cycle.",
+  alternatives: [
+    "Middleware functions in a Node.js application are used to perform tasks that occur between receiving a request and sending a response. They can modify the request and response objects, execute code, or terminate the request-response cycle.",
+    "Middleware is used for client-side rendering in Node.js applications.",
+    "Middleware is used to connect a Node.js application to a database.",
+    "Middleware is used to handle browser events in Node.js applications.",
+    "Middleware is used to define routing in Node.js applications."
+  ]
+};
+
+{
+  "text": "What is the purpose of ng-template in Angular?",
+  "area": "Front-end",
+  "subject": "Angular",
+  "difficult": "Normal",
+  "answer": "The ng-template directive in Angular is used as a placeholder for rendering content that can be reused multiple times.",
+  "alternatives": [
+    "The ng-template directive is used to define CSS styles in Angular.",
+    "The ng-template directive is used to handle user events in Angular.",
+    "The ng-template directive in Angular is used as a placeholder for rendering content that can be reused multiple times.",
+    "The ng-template directive is used to create forms in Angular.",
+    "The ng-template directive is used to define API endpoints in Angular."
+  ]
+}
+
+{
+  "text": "What is a functional component in React?",
+  "area": "Front-end",
+  "subject": "React",
+  "difficult": "Normal",
+  "answer": "A functional component in React is a JavaScript function that returns JSX (JavaScript XML) to define the component's structure and appearance.",
+  "alternatives": [
+    "A functional component in React is a class that extends the React.Component class.",
+    "A functional component in React is used for server-side rendering.",
+    "A functional component in React is a package manager for managing dependencies.",
+    "A functional component in React is a database for storing application data.",
+    "A functional component in React is a JavaScript function that returns JSX (JavaScript XML) to define the component's structure and appearance."
+  ]
+}
+
+{
+  "text": "What is computed property in Vue?",
+  "area": "Front-end",
+  "subject": "Vue",
+  "difficult": "Normal",
+  "answer": "A computed property in Vue is a property that is derived based on other data properties and is recalculated whenever the dependencies change.",
+  "alternatives": [
+    "A computed property in Vue is a property that is derived based on other data properties and is recalculated whenever the dependencies change.",
+    "A computed property in Vue is used for handling user input events.",
+    "A computed property in Vue is a CSS styling property.",
+    "A computed property in Vue is used for routing in the application.",
+    "A computed property in Vue is a database query language."
+  ]
+}
+
+{
+  "text": "What is the purpose of npm in Node.js?",
+  "area": "Back-end",
+  "subject": "Node",
+  "difficult": "Beginner",
+  "answer": "npm is a package manager that helps developers install, manage, and share reusable code packages.",
+  "alternatives": [
+    "npm is a package manager that helps developers install, manage, and share reusable code packages.",
+    "npm is a programming language used in Node.js.",
+    "npm is a database management system for Node.js.",
+    "npm is a testing framework for Node.js applications.",
+    "npm is a version control system for managing code repositories."
+  ]
+}
+
+{
+  "text": "What is a middleware in Express.js?",
+  "area": "Back-end",
+  "subject": "Node",
+  "difficult": "Normal",
+  "answer": "Middleware in Express.js is a function that has access to the request and response objects and can perform tasks such as logging, authentication, error handling, and more.",
+  "alternatives": [
+    "A middleware in Express.js is a database query language.",
+    "A middleware in Express.js is used for client-side rendering.",
+    "A middleware in Express.js is a programming language used for building web applications.",
+    "A middleware in Express.js is a CSS styling property."
+    "Middleware in Express.js is a function that has access to the request and response objects and can perform tasks such as logging, authentication, error handling, and more."
+  ]
+}
+
+{
+  "text": "What is the difference between an image and a container in Docker?",
+  "area": "DevOps",
+  "subject": "Docker",
+  "difficult": "Normal",
+  "answer": "An image in Docker is a read-only template that contains the application's code, runtime environment, libraries, and dependencies. A container, on the other hand, is a running instance of an image that can be started, stopped, and managed.",
+  "alternatives": [
+    "An image in Docker is used to define environment variables, while a container is used to define the application's structure.",
+    "An image in Docker is used for version control, while a container is used for deploying applications.",
+    "An image in Docker is a package manager, while a container is a programming language.",
+    "An image in Docker is a read-only template that contains the application's code, runtime environment, libraries, and dependencies. A container, on the other hand, is a running instance of an image that can be started, stopped, and managed.",
+    "An image in Docker is a database management system, while a container is a cloud computing platform."
+  ]
+}
+{
+  "text": "What is the Vue.js framework used for?",
+  "area": "Front-end",
+  "subject": "Vue",
+  "difficult": "Beginner",
+  "answer": "Vue.js is a progressive JavaScript framework used for building SPAs",
+  "alternatives": [
+    "Vue.js is used for server-side scripting.",
+    "Vue.js is used for managing databases.",
+    "Vue.js is used for network communication.",
+    "Vue.js is used for machine learning.",
+    "Vue.js is a progressive JavaScript framework used for building SPAs"
+  ]
+}
+
+{
+  "text": "What are Vuex actions in Vue.js used for?",
+  "area": "Front-end",
+  "subject": "Vue",
+  "difficult": "Hard",
+  "answer": "Vuex actions in Vue.js are used to perform asynchronous operations, make API calls, and commit mutations to modify the state in a controlled and centralized manner.",
+  "alternatives": [
+     "Vuex actions in Vue.js are used to perform asynchronous operations, make API calls, and commit mutations to modify the state in a controlled and centralized manner."
+    "Vuex actions in Vue.js are used for defining routes and navigation.",
+    "Vuex actions in Vue.js are used for defining component lifecycle hooks.",
+    "Vuex actions in Vue.js are used for rendering dynamic content based on user input.",
+    "Vuex actions in Vue.js are used for defining computed properties."
+  ]
+}
+
+

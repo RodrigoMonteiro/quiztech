@@ -48,7 +48,7 @@ public class Question {
 
   @NotBlank
   @NotNull
-  private String answear;
+  private String answer;
 
  
   @NotEmpty

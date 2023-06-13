@@ -81,7 +81,7 @@ public class QuestionController {
             existingQuestion.setArea(updatedQuestion.getArea());
             existingQuestion.setSubject(updatedQuestion.getSubject());
             existingQuestion.setDifficult(updatedQuestion.getDifficult());
-            existingQuestion.setAnswear(updatedQuestion.getAnswear());
+            existingQuestion.setAnswer(updatedQuestion.getAnswer());
             existingQuestion.setAlternatives(updatedQuestion.getAlternatives());
 
             questionRepository.save(existingQuestion);

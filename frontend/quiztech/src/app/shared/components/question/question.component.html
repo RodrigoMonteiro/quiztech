@@ -1,12 +1,16 @@
 <div class="question-container">
   <h3 class="question-number">{{questionNumber}}º.</h3>
   <div class="question-description">
-    <p>{{ questionTest.text }}</p>
+    <!-- Mocked -->
+    <!-- <p>{{ questionTest.text }}</p> -->
+    <p>{{ questionsByAttributesSelected[0].text }}</p>
   </div>
+
   <div class="question-alternatives-container">
     <h3 class="total-questions">{{questionNumber}}/10</h3>
     <button
-      *ngFor="let alternative of questionTest.alternatives;  let i = index"
+      *ngFor="let alternative of questionsByAttributesSelected[0].alternatives;  let i = index"
+
       (click)="handleNewSelectedAlternative(alternative)"
       [ngClass]="
         alternative === alternativeSelected
@@ -14,12 +18,23 @@
           : 'question-alternative'
       "
     >
+    <!-- Mocked -->
+    <!-- <button
+      *ngFor="let alternative of questionTest.alternatives;  let i = index"
+
+      (click)="handleNewSelectedAlternative(alternative)"
+      [ngClass]="
+        alternative === alternativeSelected
+          ? 'question-alternative btn-selected'
+          : 'question-alternative'
+      "
+    > -->
        {{ getLetterPrefix(i) + ') ' + alternative }}
     </button>
   </div>
   <div class="question-btn-container">
     <button class="question-btn btn-prev">Prev</button>
-    <button class="question-btn btn-next" (click)="test()">Next</button>
+    <button class="question-btn btn-next">Next</button>
     <button class="question-btn btn-jump">Jump</button>
     <button class="question-btn btn-confirm">Confirm</button>
   </div>
