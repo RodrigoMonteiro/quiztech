@@ -7,6 +7,7 @@ import { SelectItemComponent } from './components/select-item/select-item.compon
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { CardComponent } from './components/card/card.component';
 import { QuestionComponent } from './components/question/question.component';
+import { ButtonSelectionService } from './services/button-selection/button-selection.service';
 
 
 
@@ -28,5 +29,6 @@ import { QuestionComponent } from './components/question/question.component';
     SidenavComponent,
     CardComponent,
   ],
+  providers: [ButtonSelectionService],
 })
 export class SharedModule {}

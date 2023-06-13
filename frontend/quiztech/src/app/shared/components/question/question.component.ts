@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { QuestionService } from '../../services/question/question.service';
+import { Component, Input, OnInit } from '@angular/core';
 import { Question, questionTest } from '../../model/questionTest';
 
 @Component({
@@ -6,14 +7,19 @@ import { Question, questionTest } from '../../model/questionTest';
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.scss'],
 })
-export class QuestionComponent {
-
-  @Input() questionNumber: number = 0
+export class QuestionComponent implements OnInit {
+  @Input() questionNumber: number = 0;
   alternativeSelected: string = '';
   questionTest: Question;
+  getAllQuestions: Question[] = [];
+  questionsByAttributesSelected: Question[] = [];
 
-  constructor() {
+  constructor(private questionService: QuestionService) {
     this.questionTest = questionTest;
+    this.handleGetAllQuestions();
+  }
+  ngOnInit() {
+    this.handleGetAllQuestions();
   }
 
   handleNewSelectedAlternative(newValue: string) {
@@ -22,5 +28,21 @@ export class QuestionComponent {
 
   getLetterPrefix(index: number): string {
     return String.fromCharCode(65 + index);
+  }
+
+  handleGetAllQuestions() {
+    this.questionService.listQuestion().subscribe((questions) => {
+      this.getAllQuestions = questions;
+    });
+  }
+  selectionQuestionsByAttributesSelected(
+    area: string,
+    subject: string,
+    difficult: string
+  ) {
+
+  }
+  test() {
+    console.log(this.getAllQuestions);
   }
 }

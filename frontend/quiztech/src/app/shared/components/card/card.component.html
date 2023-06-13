@@ -1,10 +1,10 @@
 <div class="card-container">
-  <ng-container *ngIf="startQuiz">
+  <ng-container *ngIf="startedQuiz">
     <app-question [questionNumber]="questionNumberIndex"></app-question>
   </ng-container>
 
   <img
-    *ngIf="!startQuiz"
+    *ngIf="!startedQuiz"
     class="image-card"
     [src]="
       theme === 'Angular'
@@ -17,8 +17,8 @@
   />
 
   <button
-    *ngIf="!startQuiz"
-    [ngClass]="isButtonReady ? 'btn-start' : ' btn-start btn-disabled'"
+    *ngIf="!startedQuiz"
+    [ngClass]="isSelectedAllOptions ? 'btn-start' : ' btn-start btn-disabled'"
     (click)="handleSendStartQuiz()"
   >
     Get start

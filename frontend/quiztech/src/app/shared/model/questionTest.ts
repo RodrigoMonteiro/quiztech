@@ -1,4 +1,5 @@
 export interface Question {
+  id: number;
   text: string;
   area: string;
   subject: string;
@@ -8,6 +9,7 @@ export interface Question {
 }
 
 export const questionTest: Question = {
+  id: 10,
   text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem delectus iusto ipsa voluptates asperiores natus similique, nemo, quaerat hic ut ipsam. Iusto sapiente voluptatem ad molestiae odit dignissimos non voluptates?',
   area: 'Lorem',
   subject: 'Ipsum',

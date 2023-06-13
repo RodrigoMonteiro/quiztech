@@ -1,30 +1,28 @@
-import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ButtonSelectionService } from '../../services/button-selection/button-selection.service';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
 })
-export class CardComponent implements OnChanges {
+export class CardComponent {
   @Input() theme: string = '';
-  @Input() btnAreaSelected: string = '';
-  @Input() btnTechSelected: string = '';
-  @Input() btnDifficultSelected: string = '';
-// HERE
-  @Input() startQuiz: boolean = false;
-  @Output() EmitStartQuiz = new EventEmitter<boolean>();
+  startedQuiz: boolean = false;
+  isSelectedAllOptions: boolean = false;
+  questionNumberIndex: number = 1;
 
-  isButtonReady: boolean = false;
-  questionNumberIndex: number = 1
+  constructor(private btnService: ButtonSelectionService) {
 
-  ngOnChanges() {
-    this.isButtonReady =
-      this.btnAreaSelected !== '' &&
-      this.btnTechSelected !== '' &&
-      this.btnDifficultSelected !== '';
+    this.btnService.isSelectedAllOptions.subscribe((value) => {
+      this.isSelectedAllOptions = value;
+    });
+    this.btnService.startedQuiz.subscribe((value) => {
+      this.startedQuiz = value;
+    });
   }
+
   handleSendStartQuiz() {
-    this.EmitStartQuiz.emit(true);
+    this.btnService.setQuizStart();
   }
 }
-

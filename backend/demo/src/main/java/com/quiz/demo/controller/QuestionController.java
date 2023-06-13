@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,23 +35,27 @@ public class QuestionController {
     }
 
     @GetMapping
+    @CrossOrigin(origins = "http://localhost:4200")
     public List<Question> list() {
         return questionRepository.findAll();
     }
 
     @GetMapping("/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
     public Optional<Question> getQuestionById(@PathVariable @Positive Long id) {
         return questionRepository.findById(id);
 
     }
 
-    @PostMapping 
+    @PostMapping
+    @CrossOrigin(origins = "http://localhost:4200")
     @ResponseStatus(code = HttpStatus.CREATED)
     public Question create(@RequestBody @Valid Question question) {
         return questionRepository.save(question);
     }
 
     @DeleteMapping("/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<Void> delete(@PathVariable @Positive Long id) {
         Optional<Question> questionOptional = questionRepository.findById(id);
 
@@ -64,6 +69,7 @@ public class QuestionController {
     }
 
     @PutMapping("/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<Question> update(@PathVariable Long id, @RequestBody @Valid Question updatedQuestion) {
         Optional<Question> optionalQuestion = questionRepository.findById(id);
 

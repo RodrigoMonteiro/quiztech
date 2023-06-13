@@ -5,19 +5,19 @@ import { SharedModule } from '././shared/shared.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { ButtonSelectionService } from './shared/services/button-selection/button-selection.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-  ],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ButtonSelectionService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

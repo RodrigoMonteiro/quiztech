@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ThemeService } from './../../styles/theme/theme.service';
+import { ButtonSelectionService } from 'src/app/shared/services/button-selection/button-selection.service';
 
 @Component({
   selector: 'app-home',
@@ -14,9 +15,24 @@ export class HomeComponent implements OnInit, OnDestroy {
   selectedSubject: string = '';
   selectedDifficult: string = '';
   //HERE
-  startQuiz: boolean =false;
+  startQuiz: boolean = false;
 
-  constructor(private themeService: ThemeService) {}
+  constructor(
+    private themeService: ThemeService,
+    private btnService: ButtonSelectionService
+  ) {
+    this.btnService.selectedArea.subscribe((area) => {
+      this.selectedArea = area;
+    });
+
+    this.btnService.selectedSubject.subscribe((subject) => {
+      this.selectedSubject = subject;
+    });
+
+    this.btnService.selectedDifficult.subscribe((difficult) => {
+      this.selectedDifficult = difficult;
+    });
+  }
 
   ngOnInit(): void {
     this.currentThemeName = this.themeService.currentTheme.techName;
@@ -27,20 +43,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     );
   }
 
-  handleSelectedArea(area: string) {
-    this.selectedArea = area;
-    this.selectedSubject = '';
-  }
-  handleSelectedSubject(subject: string) {
-    this.selectedSubject = subject;
-  }
-  handleSelectedDifficult(difficult: string) {
-    this.selectedDifficult = difficult;
+  handleStartQuiz() {
+    this.startQuiz = true;
   }
 
-  handleStartQuiz() {
-    this.startQuiz =true;
-  }
   handleEndQuiz() {
     this.startQuiz = false;
   }

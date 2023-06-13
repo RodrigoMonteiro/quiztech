@@ -1,12 +1,6 @@
 <app-header></app-header>
 <app-sidenav
-  [isStartedQuiz]="startQuiz"
-  [btnAreaSelected]="selectedArea"
-  [btnTechSelected]="selectedSubject"
-  [btnDifficultSelected]="selectedDifficult"
-  (selectedAreaChange)="handleSelectedArea($event)"
-  (selectedSubjectChange)="handleSelectedSubject($event)"
-  (selectedDifficultChange)="handleSelectedDifficult($event)"
+
 ></app-sidenav>
 <div class="home-container">
   <div class="info-container">
@@ -17,10 +11,10 @@
           : 'info-item info-not-selected'
       "
     >
-      Area: {{ selectedArea !== "" ? selectedArea : "Not selected" }}
+      Area: {{  selectedArea !== "" ?  selectedArea : "Not selected" }}
       <img
         [src]="
-          selectedArea !== ''
+         selectedArea !== ''
             ? 'assets/images/success-icon.png'
             : 'assets/images/wrong-icon.png'
         "
@@ -34,10 +28,10 @@
           : 'info-item info-not-selected'
       "
     >
-      Subject: {{ selectedSubject !== "" ? selectedSubject : "Not selected" }}
+      Subject: {{  selectedSubject !== "" ?  selectedSubject : "Not selected" }}
       <img
         [src]="
-          selectedSubject !== ''
+         selectedSubject !== ''
             ? 'assets/images/success-icon.png'
             : 'assets/images/wrong-icon.png'
         "
@@ -64,11 +58,6 @@
     </p>
   </div>
   <app-card
-    (EmitStartQuiz)="handleStartQuiz()"
-    [startQuiz]="startQuiz"
     [theme]="currentThemeName"
-    [btnAreaSelected]="selectedArea"
-    [btnTechSelected]="selectedSubject"
-    [btnDifficultSelected]="selectedDifficult"
   ></app-card>
 </div>
