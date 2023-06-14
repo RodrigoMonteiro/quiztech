@@ -1,5 +1,5 @@
 import { QuestionService } from '../../services/question/question.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Question, questionTest } from '../../model/questionTest';
 import { ButtonSelectionService } from '../../services/button-selection/button-selection.service';
 
@@ -8,8 +8,8 @@ import { ButtonSelectionService } from '../../services/button-selection/button-s
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.scss'],
 })
-export class QuestionComponent implements OnInit {
-  @Input() questionNumber: number = 0;
+export class QuestionComponent {
+  questionIndex: number = 0;
   alternativeSelected: string = '';
   questionTest: Question;
   getAllQuestions: Question[] = [];
@@ -37,9 +37,6 @@ export class QuestionComponent implements OnInit {
       this.difficult = difficult;
     });
   }
-  ngOnInit() {
-    this.selectionQuestionsByAttributesSelected();
-  }
 
   handleNewSelectedAlternative(newValue: string) {
     this.alternativeSelected = newValue;
@@ -64,5 +61,11 @@ export class QuestionComponent implements OnInit {
         question.difficult === this.difficult
     );
     console.log(this.questionsByAttributesSelected);
+  }
+  handleNextQuestion() {
+    this.questionIndex = this.questionIndex >= 9 ? 9 : this.questionIndex + 1;
+  }
+  handlePrevQuestion() {
+    this.questionIndex = this.questionIndex <= 0 ? 0 : this.questionIndex - 1;
   }
 }

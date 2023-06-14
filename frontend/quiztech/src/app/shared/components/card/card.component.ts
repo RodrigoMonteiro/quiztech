@@ -7,10 +7,11 @@ import { ButtonSelectionService } from '../../services/button-selection/button-s
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent {
+
   @Input() theme: string = '';
   startedQuiz: boolean = false;
   isSelectedAllOptions: boolean = false;
-  questionNumberIndex: number = 1;
+
 
   constructor(private btnService: ButtonSelectionService) {
 

@@ -1,16 +1,19 @@
 <div class="question-container">
-  <h3 class="question-number">{{questionNumber}}º.</h3>
+  <h3 class="question-number">{{ questionIndex + 1 }}º.</h3>
   <div class="question-description">
     <!-- Mocked -->
     <!-- <p>{{ questionTest.text }}</p> -->
-    <p>{{ questionsByAttributesSelected[0].text }}</p>
+    <p>{{ questionsByAttributesSelected[questionIndex].text }}</p>
   </div>
 
   <div class="question-alternatives-container">
-    <h3 class="total-questions">{{questionNumber}}/10</h3>
+    <h3 class="total-questions">{{ questionIndex + 1 }}/10</h3>
     <button
-      *ngFor="let alternative of questionsByAttributesSelected[0].alternatives;  let i = index"
-
+      *ngFor="
+        let alternative of questionsByAttributesSelected[questionIndex]
+          .alternatives;
+        let i = index
+      "
       (click)="handleNewSelectedAlternative(alternative)"
       [ngClass]="
         alternative === alternativeSelected
@@ -18,8 +21,8 @@
           : 'question-alternative'
       "
     >
-    <!-- Mocked -->
-    <!-- <button
+      <!-- Mocked -->
+      <!-- <button
       *ngFor="let alternative of questionTest.alternatives;  let i = index"
 
       (click)="handleNewSelectedAlternative(alternative)"
@@ -29,13 +32,31 @@
           : 'question-alternative'
       "
     > -->
-       {{ getLetterPrefix(i) + ') ' + alternative }}
+      {{ getLetterPrefix(i) + ") " + alternative }}
     </button>
   </div>
   <div class="question-btn-container">
-    <button class="question-btn btn-prev">Prev</button>
-    <button class="question-btn btn-next">Next</button>
+    <button
+      class="question-btn btn-prev"
+      [ngClass]="questionIndex === 0 ? ' btn-disabled ' : ''"
+      (click)="handlePrevQuestion()"
+    >
+      Prev
+    </button>
+    <button
+      class="question-btn btn-next"
+      [ngClass]="questionIndex === 9 ? 'btn-disabled' : ''"
+      (click)="handleNextQuestion()"
+    >
+      Next
+    </button>
+
     <button class="question-btn btn-jump">Jump</button>
-    <button class="question-btn btn-confirm">Confirm</button>
+    <button *ngIf="questionIndex !== 9" class="question-btn btn-confirm">
+      Confirm
+    </button>
+    <ng-template [ngIf]="questionIndex === 9">
+      <button class="question-btn btn-finish">Finish</button>
+    </ng-template>
   </div>
 </div>

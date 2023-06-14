@@ -45,7 +45,7 @@
 
     .total-questions {
       position: absolute;
-      right:2%;
+      right: 2%;
       top: 4%;
     }
 
@@ -105,9 +105,11 @@
         border: 1px solid var(--font-color);
       }
     }
+
     .btn-jump {
       border: 1px solid transparent;
       background-color: #ff1717;
+      visibility: hidden;
     }
 
     .btn-confirm {
@@ -115,10 +117,20 @@
       background-color: #78ca26;
     }
 
+    .btn-finish{
+      border: 1px solid transparent;
+      background-color: var(--primary-background-color);
+    }
+
     .btn-prev,
     .btn-next {
       border: 1px solid var(--font-color);
+
     }
+     .btn-disabled {
+        pointer-events: none;
+        opacity: 0.4;
+      }
   }
   .btn-selected {
     background-color: #78ca26 !important;
