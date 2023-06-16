@@ -11,7 +11,7 @@ export class CardComponent {
   @Input() theme: string = '';
   startedQuiz: boolean = false;
   isSelectedAllOptions: boolean = false;
-
+  isQuizFinished: boolean = false;
 
   constructor(private btnService: ButtonSelectionService) {
 
@@ -21,9 +21,15 @@ export class CardComponent {
     this.btnService.startedQuiz.subscribe((value) => {
       this.startedQuiz = value;
     });
+    this.btnService.selectedFinishQuiz.subscribe((isFinished) => {
+      this.isQuizFinished = isFinished;
+    });
   }
 
   handleSendStartQuiz() {
     this.btnService.setQuizStart();
+    this.btnService.setRemoveFinishQuiz();
+
   }
+
 }

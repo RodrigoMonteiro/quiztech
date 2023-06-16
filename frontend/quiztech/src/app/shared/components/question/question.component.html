@@ -1,8 +1,6 @@
 <div class="question-container">
   <h3 class="question-number">{{ questionIndex + 1 }}º.</h3>
   <div class="question-description">
-    <!-- Mocked -->
-    <!-- <p>{{ questionTest.text }}</p> -->
     <p>{{ questionsByAttributesSelected[questionIndex].text }}</p>
   </div>
 
@@ -21,17 +19,6 @@
           : 'question-alternative'
       "
     >
-      <!-- Mocked -->
-      <!-- <button
-      *ngFor="let alternative of questionTest.alternatives;  let i = index"
-
-      (click)="handleNewSelectedAlternative(alternative)"
-      [ngClass]="
-        alternative === alternativeSelected
-          ? 'question-alternative btn-selected'
-          : 'question-alternative'
-      "
-    > -->
       {{ getLetterPrefix(i) + ") " + alternative }}
     </button>
   </div>
@@ -56,7 +43,7 @@
       Confirm
     </button>
     <ng-template [ngIf]="questionIndex === 9">
-      <button class="question-btn btn-finish">Finish</button>
+      <button class="question-btn btn-finish"(click)="handleFinishQuiz()">Finish</button>
     </ng-template>
   </div>
 </div>

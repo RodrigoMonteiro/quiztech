@@ -11,6 +11,9 @@ export class ButtonSelectionService {
   isSelectedAllOptions: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     false
   );
+  selectedFinishQuiz: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+    false
+  );
   startedQuiz: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor() {}
@@ -33,9 +36,24 @@ export class ButtonSelectionService {
   setQuizStart() {
     this.startedQuiz.next(true);
   }
+
   setQuizEnded() {
     this.startedQuiz.next(false);
   }
+
+  setSelectedFinishQuiz() {
+    this.selectedFinishQuiz.next(true);
+  }
+
+  setRemoveFinishQuiz() {
+    this.selectedFinishQuiz.next(false);
+  }
+  handleResetAllOptionsSelected() {
+    this.setSelectedArea('');
+    this.setSelectedSubject('');
+    this.setSelectedDifficult('');
+  }
+
   private handleStatusQuiz() {
     const area = this.selectedArea.value;
     const subject = this.selectedSubject.value;

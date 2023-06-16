@@ -8,6 +8,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { CardComponent } from './components/card/card.component';
 import { QuestionComponent } from './components/question/question.component';
 import { ButtonSelectionService } from './services/button-selection/button-selection.service';
+import { ResultComponent } from './components/result/result.component';
 
 
 
@@ -19,6 +20,7 @@ import { ButtonSelectionService } from './services/button-selection/button-selec
     SidenavComponent,
     CardComponent,
     QuestionComponent,
+    ResultComponent,
   ],
   imports: [CommonModule, MaterialModule],
   exports: [
@@ -28,6 +30,7 @@ import { ButtonSelectionService } from './services/button-selection/button-selec
     SelectItemComponent,
     SidenavComponent,
     CardComponent,
+    ResultComponent
   ],
   providers: [ButtonSelectionService],
 })

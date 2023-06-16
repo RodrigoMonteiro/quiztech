@@ -1,6 +1,6 @@
 import { QuestionService } from '../../services/question/question.service';
-import { Component, Input } from '@angular/core';
-import { Question, questionTest } from '../../model/questionTest';
+import { Component } from '@angular/core';
+import { Question } from '../../model/questionTest';
 import { ButtonSelectionService } from '../../services/button-selection/button-selection.service';
 
 @Component({
@@ -11,7 +11,6 @@ import { ButtonSelectionService } from '../../services/button-selection/button-s
 export class QuestionComponent {
   questionIndex: number = 0;
   alternativeSelected: string = '';
-  questionTest: Question;
   getAllQuestions: Question[] = [];
   questionsByAttributesSelected: Question[] = [];
   area: string = '';
@@ -22,7 +21,6 @@ export class QuestionComponent {
     private questionService: QuestionService,
     private btnService: ButtonSelectionService
   ) {
-    this.questionTest = questionTest;
     this.handleGetAllQuestions();
 
     this.btnService.selectedArea.subscribe((area) => {
@@ -62,10 +60,15 @@ export class QuestionComponent {
     );
     console.log(this.questionsByAttributesSelected);
   }
+
   handleNextQuestion() {
     this.questionIndex = this.questionIndex >= 9 ? 9 : this.questionIndex + 1;
   }
+
   handlePrevQuestion() {
     this.questionIndex = this.questionIndex <= 0 ? 0 : this.questionIndex - 1;
+  }
+  handleFinishQuiz() {
+    this.btnService.setSelectedFinishQuiz();
   }
 }

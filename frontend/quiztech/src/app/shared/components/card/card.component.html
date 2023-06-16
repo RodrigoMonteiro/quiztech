@@ -1,6 +1,9 @@
 <div class="card-container">
-  <ng-container *ngIf="startedQuiz">
+  <ng-container *ngIf="startedQuiz && !isQuizFinished">
     <app-question></app-question>
+  </ng-container>
+  <ng-container *ngIf="isQuizFinished && startedQuiz">
+    <app-result [applicationTheme]="theme"></app-result>
   </ng-container>
 
   <img
