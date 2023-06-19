@@ -1,19 +1,33 @@
 <div class="result-container">
-  <img
-
-    class="image-result-finished"
-    [src]="
-      applicationTheme === 'Angular'
-        ? 'assets/images/completed-angular.png'
-        : applicationTheme === 'Vue'
-        ? 'assets/images/completed-vue.png'
-        : 'assets/images/completed-react.png'
-    "
-    alt="logo_card"
-  />
-  <span>{{finishMessageUser}}</span>
-  <div class="btn-result-container">
-    <button class="btn-result" (click)="handleRestartQuiz()">Try again</button>
-    <button class="btn-result" (click)="handleResetOptionsQuiz()">Choose new options</button>
-  </div>
+  <ng-container *ngIf="isDetailsOpen">
+    <app-detail (backInformationSection)="handleCloseDetails()"></app-detail>
+  </ng-container>
+  <ng-container *ngIf="!isDetailsOpen">
+    <img
+      class="image-result-finished"
+      [src]="
+        applicationTheme === 'Angular'
+          ? 'assets/images/completed-angular.png'
+          : applicationTheme === 'Vue'
+          ? 'assets/images/completed-vue.png'
+          : 'assets/images/completed-react.png'
+      "
+      alt="logo_card"
+    />
+    <span>{{ finishMessageUser }}</span>
+    <span
+      >More information about your quiz performance
+      <button class="btn-result-information" (click)="handleOpenDetails()">
+        <strong>here</strong></button
+      >.</span
+    >
+    <div class="btn-result-container">
+      <button class="btn-result" (click)="handleRestartQuiz()">
+        Try again
+      </button>
+      <button class="btn-result" (click)="handleResetOptionsQuiz()">
+        Choose new options
+      </button>
+    </div>
+  </ng-container>
 </div>

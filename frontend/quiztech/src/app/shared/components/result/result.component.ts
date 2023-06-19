@@ -8,8 +8,8 @@ import { ButtonSelectionService } from '../../services/button-selection/button-s
 })
 export class ResultComponent {
   @Input() applicationTheme: string = '';
-  // Messege mocked at the moment
   finishMessageUser: string = 'Congrats! you finished the quiz and got (?/10)!';
+  isDetailsOpen: boolean = false;
 
   constructor(private btnService: ButtonSelectionService) {}
 
@@ -20,5 +20,12 @@ export class ResultComponent {
     this.btnService.setQuizEnded();
     this.btnService.setSelectedFinishQuiz();
     this.btnService.handleResetAllOptionsSelected();
+  }
+
+  handleOpenDetails() {
+    this.isDetailsOpen = true;
+  }
+  handleCloseDetails() {
+    this.isDetailsOpen = false;
   }
 }

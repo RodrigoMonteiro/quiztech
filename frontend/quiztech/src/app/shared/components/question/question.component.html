@@ -12,9 +12,9 @@
           .alternatives;
         let i = index
       "
-      (click)="handleNewSelectedAlternative(alternative)"
+      (click)="handleNewSelectedAlternative(questionIndex, alternative)"
       [ngClass]="
-        alternative === alternativeSelected
+        alternative === isSameSelectectedAlternative(questionIndex)
           ? 'question-alternative btn-selected'
           : 'question-alternative'
       "

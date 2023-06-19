@@ -1,7 +1,8 @@
 import { QuestionService } from '../../services/question/question.service';
 import { Component } from '@angular/core';
-import { Question } from '../../model/questionTest';
+import { Question } from '../../model/questions';
 import { ButtonSelectionService } from '../../services/button-selection/button-selection.service';
+import { QuestionDataService } from '../../services/question/question-data/question-data.service';
 
 @Component({
   selector: 'app-question',
@@ -10,7 +11,6 @@ import { ButtonSelectionService } from '../../services/button-selection/button-s
 })
 export class QuestionComponent {
   questionIndex: number = 0;
-  alternativeSelected: string = '';
   getAllQuestions: Question[] = [];
   questionsByAttributesSelected: Question[] = [];
   area: string = '';
@@ -19,7 +19,8 @@ export class QuestionComponent {
 
   constructor(
     private questionService: QuestionService,
-    private btnService: ButtonSelectionService
+    private btnService: ButtonSelectionService,
+    private questionDataService: QuestionDataService
   ) {
     this.handleGetAllQuestions();
 
@@ -36,8 +37,12 @@ export class QuestionComponent {
     });
   }
 
-  handleNewSelectedAlternative(newValue: string) {
-    this.alternativeSelected = newValue;
+  handleNewSelectedAlternative(questionIndex: number, newValue: string) {
+    this.questionDataService.handleChangeSelectedAlternativeQuestion(
+      questionIndex,
+      newValue
+    );
+    this.questionDataService.getAllQuestionData()
   }
 
   getLetterPrefix(index: number): string {
@@ -48,8 +53,19 @@ export class QuestionComponent {
     this.questionService.listQuestion().subscribe((questions) => {
       this.getAllQuestions = questions;
       this.selectionQuestionsByAttributesSelected();
+      this.questionsByAttributesSelected.forEach((question, index) => {
+        this.questionDataService.handleGetCorrectAlternatives(
+          index,
+          question.answer
+        );
+      });
     });
   }
+
+  isSameSelectectedAlternative(index: number): string{
+    return this.questionDataService.getAlternativeSelected(index)
+  }
+
 
   selectionQuestionsByAttributesSelected() {
     this.questionsByAttributesSelected = this.getAllQuestions.filter(
@@ -58,7 +74,6 @@ export class QuestionComponent {
         question.subject === this.tech &&
         question.difficult === this.difficult
     );
-    console.log(this.questionsByAttributesSelected);
   }
 
   handleNextQuestion() {
@@ -68,6 +83,7 @@ export class QuestionComponent {
   handlePrevQuestion() {
     this.questionIndex = this.questionIndex <= 0 ? 0 : this.questionIndex - 1;
   }
+
   handleFinishQuiz() {
     this.btnService.setSelectedFinishQuiz();
   }

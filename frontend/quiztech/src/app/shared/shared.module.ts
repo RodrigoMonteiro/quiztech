@@ -9,6 +9,7 @@ import { CardComponent } from './components/card/card.component';
 import { QuestionComponent } from './components/question/question.component';
 import { ButtonSelectionService } from './services/button-selection/button-selection.service';
 import { ResultComponent } from './components/result/result.component';
+import { DetailComponent } from './components/detail/detail.component';
 
 
 
@@ -21,6 +22,7 @@ import { ResultComponent } from './components/result/result.component';
     CardComponent,
     QuestionComponent,
     ResultComponent,
+    DetailComponent,
   ],
   imports: [CommonModule, MaterialModule],
   exports: [
