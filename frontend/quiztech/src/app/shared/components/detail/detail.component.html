@@ -1,9 +1,25 @@
 <div class="detail-container">
-  <button (click)="handleInformationSection()">Back</button>
-  <div class="detail-questions-container"></div>
-  <div class="detail-roadmap-answer-container">
-    <button *ngFor="let button of "></button>
-  </div>
+  <div class="detail-questions-container">
+    <div class="detail-questions-header">
+      <button class="back-result" (click)="handleInformationSection()"><mat-icon>keyboard_arrow_left</mat-icon> Back list</button>
+      <button class="question-arrow" (click)="handlePrevQuestion()"><mat-icon>keyboard_arrow_left</mat-icon></button>
+      <h3>{{resultIndex+1}}º Question</h3>
+      <button class="question-arrow" (click)="handleNextQuestion()"><mat-icon>keyboard_arrow_right</mat-icon></button>
+    </div>
+    <div class="detail-question-content">
+      <span class="detail-question-text"><strong>Question: </strong>{{resultQuiz[resultIndex].questionText}}</span>
+    <span class="detail-alternative"><strong>Correct alternative: </strong>{{resultQuiz[resultIndex].alternativeCorrect}}</span>
+    <span class="detail-alternative"><strong>Selected alternative: </strong>{{resultQuiz[resultIndex].alternativeSelected}}</span>
+    </div>
 
-  <p>detail component here!</p>
+  </div>
+  <div class="detail-roadmap-answer-container">
+    <button *ngFor="let question of resultQuiz"
+     [ngClass]="question.alternativeSelected === question.alternativeCorrect ?
+     'btn-result btn-result-correct':'btn-result btn-result-incorrect'"
+     (click)="handleSpecificQuestion(question.questionIndex)"
+     >
+     {{question.questionIndex +1}}º Question <img [src]="question.alternativeSelected === question.alternativeCorrect
+     ? 'assets/images/success-icon.png' :'assets/images/wrong-icon.png'" alt="icon_status"></button>
+  </div>
 </div>

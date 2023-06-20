@@ -1,5 +1,108 @@
-.detail-container{
+.detail-container {
+  display: flex;
   width: 100%;
   height: 100%;
-  border: 1px solid black;
+  justify-content: space-around;
+
+  .detail-questions-container {
+    width: 60%;
+    height: 100%;
+    border: 2px solid var(--secondary-background-color);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .detail-questions-header {
+      width: 95%;
+      height: 10%;
+      display: flex;
+      // background-color: pink;
+      justify-content: space-evenly;
+      align-items: center;
+
+      .question-arrow,
+      .back-result {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: transparent;
+        border: 1px solid transparent;
+        font-size: 0.9rem;
+        font-family: "Montserrat", sans-serif;
+        cursor: pointer;
+      }
+
+      .back-result {
+        position: absolute;
+        left: 2.5%;
+      }
+    }
+
+    .detail-question-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      height: 90%;
+      width: 100;
+      // background-color: aquamarine;
+
+      .detail-question-text {
+        // background-color: yellowgreen;
+        width: 95%;
+        height: 60%;
+      }
+      .detail-alternative {
+        // background-color: yellow;
+        height: 15%;
+        width: 95%;
+      }
+    }
+  }
+
+  .detail-roadmap-answer-container {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 2px solid var(--secondary-background-color);
+    border-radius: 5px;
+
+    .btn-result {
+      position: relative;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      height: 8%;
+      width: 90%;
+      padding: 5px;
+      font-family: "Montserrat", sans-serif;
+      color: var(--font-color);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      border-radius: 4px;
+      background-color: transparent;
+
+      &:hover {
+        opacity: 0.9;
+        transition: 0.3s;
+        transform: translateY(-3px);
+        border: 2px solid var(--font-color);
+      }
+    }
+
+    .btn-result-correct {
+      border: 2px solid #78ca26;
+      background-color: transparent;
+
+    }
+    .btn-result-incorrect {
+      border: 2px solid #ff1717;
+
+    }
+  }
 }

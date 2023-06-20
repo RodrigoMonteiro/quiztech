@@ -10,6 +10,7 @@ import { QuestionDataService } from '../../services/question/question-data/quest
   styleUrls: ['./question.component.scss'],
 })
 export class QuestionComponent {
+
   questionIndex: number = 0;
   getAllQuestions: Question[] = [];
   questionsByAttributesSelected: Question[] = [];
@@ -42,7 +43,7 @@ export class QuestionComponent {
       questionIndex,
       newValue
     );
-    this.questionDataService.getAllQuestionData()
+    // this.questionDataService.getAllQuestionData()
   }
 
   getLetterPrefix(index: number): string {
@@ -56,13 +57,14 @@ export class QuestionComponent {
       this.questionsByAttributesSelected.forEach((question, index) => {
         this.questionDataService.handleGetCorrectAlternatives(
           index,
-          question.answer
+          question.answer,
+          question.text
         );
       });
     });
   }
 
-  isSameSelectectedAlternative(index: number): string{
+  selectectedAlternative(index: number): string{
     return this.questionDataService.getAlternativeSelected(index)
   }
 

@@ -21,6 +21,12 @@
 
   <button
     *ngIf="!startedQuiz"
+   class="btn-start"
+  >
+    How does it work?
+  </button>
+  <button
+    *ngIf="!startedQuiz"
     [ngClass]="isSelectedAllOptions ? 'btn-start' : ' btn-start btn-disabled'"
     (click)="handleSendStartQuiz()"
   >

@@ -14,7 +14,7 @@
       "
       (click)="handleNewSelectedAlternative(questionIndex, alternative)"
       [ngClass]="
-        alternative === isSameSelectectedAlternative(questionIndex)
+        alternative === selectectedAlternative(questionIndex)
           ? 'question-alternative btn-selected'
           : 'question-alternative'
       "
@@ -31,19 +31,16 @@
       Prev
     </button>
     <button
+    *ngIf="questionIndex !== 9"
       class="question-btn btn-next"
-      [ngClass]="questionIndex === 9 ? 'btn-disabled' : ''"
+      [ngClass]="selectectedAlternative(questionIndex) !== '' && questionIndex !== 9 ? '':'btn-disabled'"
       (click)="handleNextQuestion()"
     >
       Next
     </button>
 
-    <button class="question-btn btn-jump">Jump</button>
-    <button *ngIf="questionIndex !== 9" class="question-btn btn-confirm">
-      Confirm
-    </button>
     <ng-template [ngIf]="questionIndex === 9">
-      <button class="question-btn btn-finish"(click)="handleFinishQuiz()">Finish</button>
+      <button [ngClass]=" selectectedAlternative(questionIndex) !==''? 'question-btn btn-finish' :'question-btn btn-finish btn-disabled'"(click)="handleFinishQuiz()">Finish</button>
     </ng-template>
   </div>
 </div>

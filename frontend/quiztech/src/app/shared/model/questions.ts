@@ -12,4 +12,5 @@ export interface QuestionData {
   questionIndex: number;
   alternativeSelected: string;
   alternativeCorrect: string;
+  questionText: string
 }

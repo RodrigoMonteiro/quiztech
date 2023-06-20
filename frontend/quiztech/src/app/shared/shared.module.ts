@@ -13,6 +13,7 @@ import { DetailComponent } from './components/detail/detail.component';
 
 
 
+
 @NgModule({
   declarations: [
     HeaderComponent,
