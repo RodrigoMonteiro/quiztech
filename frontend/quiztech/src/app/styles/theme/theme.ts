@@ -10,7 +10,7 @@ export const angularLight: Theme = {
   theme: 'Light',
   icon: 'assets/images/angularLogo.png',
   properties: {
-    '--primary-background-color': '#e30b3b',
+    '--primary-background-color': '#fa2555',
     '--secondary-background-color': '#1976D2',
     '--default-background-color': '#ffffff',
     '--font-color': '#0d0d0d',
@@ -32,7 +32,7 @@ export const reactLight: Theme = {
   theme: 'Light',
   icon: 'assets/images/reactLogo.png',
   properties: {
-    '--primary-background-color': '#88dded',
+    '--primary-background-color': '#73bcc9',
     '--secondary-background-color': '#1c2c4c',
     '--default-background-color': '#FFFFFF',
     '--font-color': '#0d0d0d',
@@ -43,8 +43,8 @@ export const reactDark: Theme = {
   theme: 'Dark',
   icon: 'assets/images/reactLogo.png',
   properties: {
-    '--primary-background-color': '#7cc5d9',
-    '--secondary-background-color': '#4c768d',
+    '--primary-background-color': '#5da0b3',
+    '--secondary-background-color': '#315569',
     '--default-background-color': '#0d0d0d',
     '--font-color': '#FFFFFF',
   },

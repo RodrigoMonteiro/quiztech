@@ -9,20 +9,25 @@ import { QuestionDataService } from '../../services/question/question-data/quest
 })
 export class ResultComponent {
   @Input() applicationTheme: string = '';
-  finishMessageUser: string = 'Congrats! you finished the quiz and got (?/10)!';
   isDetailsOpen: boolean = false;
+  finalResultQuiz: number = 0;
 
-  constructor(private btnService: ButtonSelectionService, private questionData : QuestionDataService) {}
+  constructor(
+    private btnService: ButtonSelectionService,
+    private questionDataService: QuestionDataService
+  ) {
+    this.handleGetFinalResult();
+  }
 
   handleRestartQuiz() {
     this.btnService.setRemoveFinishQuiz();
-    this.questionData.handleRestartAllQuestionsSelected();
+    this.questionDataService.handleRestartAllQuestionsSelected();
   }
   handleResetOptionsQuiz() {
     this.btnService.setQuizEnded();
     this.btnService.setSelectedFinishQuiz();
     this.btnService.handleResetAllOptionsSelected();
-    this.questionData.handleResetAllQuiz();
+    this.questionDataService.handleResetAllQuiz();
   }
 
   handleOpenDetails() {
@@ -30,5 +35,14 @@ export class ResultComponent {
   }
   handleCloseDetails() {
     this.isDetailsOpen = false;
+  }
+
+  handleGetFinalResult() {
+    let result = this.questionDataService.getAllQuestionData();
+    result.forEach((question) => {
+      if (question.alternativeCorrect === question.alternativeSelected) {
+        this.finalResultQuiz += 1;
+      }
+    });
   }
 }

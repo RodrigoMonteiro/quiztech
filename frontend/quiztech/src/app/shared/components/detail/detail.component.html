@@ -2,9 +2,9 @@
   <div class="detail-questions-container">
     <div class="detail-questions-header">
       <button class="back-result" (click)="handleInformationSection()"><mat-icon>keyboard_arrow_left</mat-icon> Back list</button>
-      <button class="question-arrow" (click)="handlePrevQuestion()"><mat-icon>keyboard_arrow_left</mat-icon></button>
+      <button class="question-arrow-left" (click)="handlePrevQuestion()"><mat-icon>keyboard_arrow_left</mat-icon></button>
       <h3>{{resultIndex+1}}º Question</h3>
-      <button class="question-arrow" (click)="handleNextQuestion()"><mat-icon>keyboard_arrow_right</mat-icon></button>
+      <button class="question-arrow-right" (click)="handleNextQuestion()"><mat-icon>keyboard_arrow_right</mat-icon></button>
     </div>
     <div class="detail-question-content">
       <span class="detail-question-text"><strong>Question: </strong>{{resultQuiz[resultIndex].questionText}}</span>

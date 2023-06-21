@@ -1,26 +1,34 @@
 <div class="question-container">
   <h3 class="question-number">{{ questionIndex + 1 }}º.</h3>
   <div class="question-description">
-    <p>{{ questionsByAttributesSelected[questionIndex].text }}</p>
+    <p>
+      {{
+        questionsByAttributesSelected.length > 0
+          ? questionsByAttributesSelected[questionIndex].text
+          : ""
+      }}
+    </p>
   </div>
 
   <div class="question-alternatives-container">
     <h3 class="total-questions">{{ questionIndex + 1 }}/10</h3>
-    <button
-      *ngFor="
-        let alternative of questionsByAttributesSelected[questionIndex]
-          .alternatives;
-        let i = index
-      "
-      (click)="handleNewSelectedAlternative(questionIndex, alternative)"
-      [ngClass]="
-        alternative === selectectedAlternative(questionIndex)
-          ? 'question-alternative btn-selected'
-          : 'question-alternative'
-      "
-    >
-      {{ getLetterPrefix(i) + ") " + alternative }}
-    </button>
+    <ng-container *ngIf="questionsByAttributesSelected.length > 0">
+      <button
+        *ngFor="
+          let alternative of questionsByAttributesSelected[questionIndex]
+            .alternatives;
+          let i = index
+        "
+        (click)="handleNewSelectedAlternative(questionIndex, alternative)"
+        [ngClass]="
+          alternative === selectectedAlternative(questionIndex)
+            ? 'question-alternative btn-selected'
+            : 'question-alternative'
+        "
+      >
+        {{ getLetterPrefix(i) + ") " + alternative }}
+      </button>
+    </ng-container>
   </div>
   <div class="question-btn-container">
     <button
@@ -31,16 +39,29 @@
       Prev
     </button>
     <button
-    *ngIf="questionIndex !== 9"
+      *ngIf="questionIndex !== 9"
       class="question-btn btn-next"
-      [ngClass]="selectectedAlternative(questionIndex) !== '' && questionIndex !== 9 ? '':'btn-disabled'"
+      [ngClass]="
+        selectectedAlternative(questionIndex) !== '' && questionIndex !== 9
+          ? ''
+          : 'btn-disabled'
+      "
       (click)="handleNextQuestion()"
     >
       Next
     </button>
 
     <ng-template [ngIf]="questionIndex === 9">
-      <button [ngClass]=" selectectedAlternative(questionIndex) !==''? 'question-btn btn-finish' :'question-btn btn-finish btn-disabled'"(click)="handleFinishQuiz()">Finish</button>
+      <button
+        [ngClass]="
+          selectectedAlternative(questionIndex) !== ''
+            ? 'question-btn btn-finish'
+            : 'question-btn btn-finish btn-disabled'
+        "
+        (click)="handleFinishQuiz()"
+      >
+        Finish
+      </button>
     </ng-template>
   </div>
 </div>

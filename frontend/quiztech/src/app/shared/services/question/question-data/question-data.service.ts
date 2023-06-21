@@ -11,11 +11,15 @@ export class QuestionDataService {
   >([]);
   constructor() {}
 
-  getAllQuestionData() {
-    console.log(this.questionData.value);
+  getAllQuestionData(): QuestionData[] {
+    return this.questionData.value;
   }
 
-  handleGetCorrectAlternatives(index: number, correctAlternative: string, questionText: string) {
+  handleGetCorrectAlternatives(
+    index: number,
+    correctAlternative: string,
+    questionText: string
+  ) {
     const currentData = this.questionData.getValue();
 
     if (!currentData[index]) {
@@ -23,11 +27,12 @@ export class QuestionDataService {
         questionIndex: index,
         alternativeSelected: '',
         alternativeCorrect: '',
-        questionText: questionText,
+        questionText: '',
       };
     }
 
     currentData[index].alternativeCorrect = correctAlternative;
+    currentData[index].questionText = questionText;
     this.questionData.next(currentData);
   }
 
@@ -45,23 +50,23 @@ export class QuestionDataService {
   }
 
   handleRestartAllQuestionsSelected() {
-  const currentData = this.questionData.getValue();
-  for (const question of currentData) {
-    question.alternativeSelected = '';
-    question.questionText = '';
+    const currentData = this.questionData.getValue();
+    for (const question of currentData) {
+      question.alternativeSelected = '';
+      question.questionText = '';
+    }
+    this.questionData.next(currentData);
   }
-  this.questionData.next(currentData);
-}
 
-handleResetAllQuiz(){
-  const currentData = this.questionData.getValue();
-  for (const question of currentData) {
-    question.alternativeSelected = '';
-    question.alternativeCorrect = '';
-    question.questionText =''
+  handleResetAllQuiz() {
+    const currentData = this.questionData.getValue();
+    for (const question of currentData) {
+      question.alternativeSelected = '';
+      question.alternativeCorrect = '';
+      question.questionText = '';
+    }
+    this.questionData.next(currentData);
   }
-  this.questionData.next(currentData);
-}
 }
 
 
