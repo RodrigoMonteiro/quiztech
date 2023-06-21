@@ -12,6 +12,7 @@ export class CardComponent {
   startedQuiz: boolean = false;
   isSelectedAllOptions: boolean = false;
   isQuizFinished: boolean = false;
+  isInstructionsOpened: boolean = false;
 
   constructor(private btnService: ButtonSelectionService) {
 
@@ -29,7 +30,10 @@ export class CardComponent {
   handleSendStartQuiz() {
     this.btnService.setQuizStart();
     this.btnService.setRemoveFinishQuiz();
+  }
 
+  handleChangeInstrucutonStatus(){
+    this.isInstructionsOpened = !this.isInstructionsOpened
   }
 
 }
