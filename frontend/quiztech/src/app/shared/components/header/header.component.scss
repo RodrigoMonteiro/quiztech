@@ -1,4 +1,5 @@
 .header-container {
+  position: relative;
   width: 100%;
   height: 12.5%;
   background-color: var(--primary-background-color);
@@ -13,6 +14,12 @@
 
   .header-title{
     margin: auto;
+  }
+
+  app-select{
+    width: 10%;
+    position: relative;
+    right: 2%;
   }
 
 

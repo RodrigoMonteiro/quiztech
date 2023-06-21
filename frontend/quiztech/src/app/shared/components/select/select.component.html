@@ -1,22 +1,33 @@
-<mat-form-field class="select-container" appearance="fill">
-  <mat-label >Select theme</mat-label>
-  <mat-select class="select-item">
-    <!-- <app-select-item [name]="item.techName" [theme]="item.theme" [icon]="item.icon"></app-select-item> -->
-    <mat-option
-      *ngFor="let item of listThemeItems"
-     [value]="item.theme + ' ' + item.techName"
+<div class="select-container">
+  <button
+    class="btn-select btn-theme-seleted"
+    (click)="handleToggleOpenSelect()"
+  >
+   {{ getCurrentThemeName()}}
+   {{ getCurrentThemeMode()}}
+  </button>
+  <div
+    [ngClass]="
+      isSelectOpen
+        ? 'select-btn-container select-visible'
+        : 'select-btn-container select-hidden'
+    "
+  >
+    <button
+      *ngFor="let item of listThemeItems; let i = index"
+      [value]="item.theme + ' ' + item.techName"
       (click)="switchTheme(item.techName, item.theme)"
+      class="btn-select btn-theme"
+      [class.first]="i === 0"
+      [class.last]="i === listThemeItems.length - 1"
     >
-      <img src="{{ item.icon }}" alt="icon" />
       <span>{{ item.techName }}</span>
-      <img
-        src="{{
-          item.theme === 'Light'
-            ? 'assets/images/lightTheme.png'
-            : 'assets/images/darkTheme.png'
-        }}"
-        alt="theme"
-      />
-    </mat-option>
-  </mat-select>
-</mat-form-field>
+      <mat-icon class="btn-img" *ngIf="item.theme === 'Light'"
+        >light_mode</mat-icon
+      >
+      <mat-icon class="btn-img" *ngIf="item.theme === 'Dark'"
+        >dark_mode</mat-icon
+      >
+    </button>
+  </div>
+</div>
