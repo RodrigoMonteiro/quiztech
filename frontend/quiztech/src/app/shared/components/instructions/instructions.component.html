@@ -1,4 +1,35 @@
 <div class="instruction-container">
-  <p>Instruction component!</p>
-  <button (click)="handleEmitChangeAction()">Back</button>
+  <div class="first-instruction-container">
+    <span class="instruction-header">1º Step: Select options </span>
+    <div class="instruction-content">
+      <ol class="list-container">
+        <li class="list-item">Start by selecting the desired quiz area.</li>
+        <li class="list-item">Once you've chosen the area, select the specific technology within that area.</li>
+        <li class="list-item">Adjust the difficulty level of the quiz based on your preference and knowledge of the selected area and technology.</li>
+        <li class="list-item">After making these selections, you can begin the quiz by clicking the <strong>"Get start" </strong>button.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="second-instruction-container">
+    <span class="instruction-header">2º Step: Make the quiz</span>
+    <div class="instruction-content">
+       <ol class="list-container">
+        <li class="list-item">The quiz consists of a total of 10 questions.</li>
+        <li class="list-item">Each question consists of a question with 5 alternatives, of which only one is correct.</li>
+        <li class="list-item">You have the flexibility to navigate back and forth between the 10 questions.</li>
+        <li class="list-item">Once you are confident with your answers for all 10 questions, you can choose the <strong>"Finish"</strong> in tenth question.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="third-instruction-container">
+    <span class="instruction-header">3º Step: See the results</span>
+    <div class="instruction-content">
+       <ol class="list-container">
+        <li class="list-item-last">When you finish th quiz, it will show you how many correct answers you had in total.</li>
+        <li class="list-item-last">There is a <strong>"Here"</strong> button to get more information about your quiz performance.</li>
+        <li class="list-item-last">By clicking on the button for more information, you will be able to navigate between the questions and check the questions, selected alternatives and correct alternatives.</li>
+      </ol>
+    </div>
+  </div>
+  <button class="btn-instruction-back" (click)="handleEmitChangeAction()">Back</button>
 </div>
