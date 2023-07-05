@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ButtonSelectionService } from '../../services/button-selection/button-selection.service';
 import { QuestionDataService } from '../../services/question/question-data/question-data.service';
+import { ArrayOperationsService } from '../../services/util/array-operations.service';
 
 @Component({
   selector: 'app-result',
@@ -14,7 +15,8 @@ export class ResultComponent {
 
   constructor(
     private btnService: ButtonSelectionService,
-    private questionDataService: QuestionDataService
+    private questionDataService: QuestionDataService,
+    private arrayOperationsService: ArrayOperationsService
   ) {
     this.handleGetFinalResult();
   }

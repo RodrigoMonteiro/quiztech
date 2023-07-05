@@ -34,6 +34,7 @@ export class QuestionDataService {
     currentData[index].alternativeCorrect = correctAlternative;
     currentData[index].questionText = questionText;
     this.questionData.next(currentData);
+
   }
 
   handleChangeSelectedAlternativeQuestion(
@@ -41,6 +42,16 @@ export class QuestionDataService {
     alternativeSelected: string
   ) {
     const currentData = this.questionData.getValue();
+
+    if (!currentData[index]) {
+      currentData[index] = {
+        questionIndex: index,
+        alternativeSelected: '',
+        alternativeCorrect: '',
+        questionText: '',
+      };
+    }
+
     currentData[index].alternativeSelected = alternativeSelected;
     this.questionData.next(currentData);
   }

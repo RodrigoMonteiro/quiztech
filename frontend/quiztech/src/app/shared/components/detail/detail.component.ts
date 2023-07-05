@@ -16,7 +16,7 @@ export class DetailComponent {
   }
 
   constructor(private questionService: QuestionDataService) {
-    this.resultQuiz = questionService.questionData.value;
+    this.resultQuiz = this.questionService.questionData.value;
   }
 
   handleSpecificQuestion(newIndex: number) {

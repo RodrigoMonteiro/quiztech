@@ -1,5 +1,4 @@
-import { QuestionService } from '../../services/question/question.service';
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Question } from '../../model/questions';
 import { ButtonSelectionService } from '../../services/button-selection/button-selection.service';
 import { QuestionDataService } from '../../services/question/question-data/question-data.service';
@@ -9,21 +8,23 @@ import { QuestionDataService } from '../../services/question/question-data/quest
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.scss'],
 })
-export class QuestionComponent {
+export class QuestionComponent implements OnChanges, OnInit {
+  @Input() allQuestions: Question[] = [];
 
   questionIndex: number = 0;
-  getAllQuestions: Question[] = [];
   questionsByAttributesSelected: Question[] = [];
+
   area: string = '';
   tech: string = '';
   difficult: string = '';
 
   constructor(
-    private questionService: QuestionService,
     private btnService: ButtonSelectionService,
     private questionDataService: QuestionDataService
   ) {
     this.handleGetAllQuestions();
+
+
 
     this.btnService.selectedArea.subscribe((area) => {
       this.area = area;
@@ -37,13 +38,28 @@ export class QuestionComponent {
       this.difficult = difficult;
     });
   }
+  ngOnInit(): void {
+    this.questionsByAttributesSelected.forEach((question, index) => {
+      this.questionDataService.handleGetCorrectAlternatives(
+        index,
+        question.answer,
+        question.text
+      );
+    });
+  }
+
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['allQuestions']) {
+      this.selectionQuestionsByAttributesSelected();
+    }
+  }
 
   handleNewSelectedAlternative(questionIndex: number, newValue: string) {
     this.questionDataService.handleChangeSelectedAlternativeQuestion(
       questionIndex,
       newValue
     );
-    // this.questionDataService.getAllQuestionData()
   }
 
   getLetterPrefix(index: number): string {
@@ -51,26 +67,15 @@ export class QuestionComponent {
   }
 
   handleGetAllQuestions() {
-    this.questionService.listQuestion().subscribe((questions) => {
-      this.getAllQuestions = questions;
-      this.selectionQuestionsByAttributesSelected();
-      this.questionsByAttributesSelected.forEach((question, index) => {
-        this.questionDataService.handleGetCorrectAlternatives(
-          index,
-          question.answer,
-          question.text
-        );
-      });
-    });
+    this.selectionQuestionsByAttributesSelected();
   }
 
-  selectectedAlternative(index: number): string{
-    return this.questionDataService.getAlternativeSelected(index)
+  selectectedAlternative(index: number): string {
+    return this.questionDataService.getAlternativeSelected(index);
   }
-
 
   selectionQuestionsByAttributesSelected() {
-    this.questionsByAttributesSelected = this.getAllQuestions.filter(
+    this.questionsByAttributesSelected = this.allQuestions.filter(
       (question) =>
         question.area === this.area &&
         question.subject === this.tech &&

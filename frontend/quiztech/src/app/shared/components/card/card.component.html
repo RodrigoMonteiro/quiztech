@@ -1,6 +1,6 @@
 <div class="card-container">
   <ng-container *ngIf="startedQuiz && !isQuizFinished && !isInstructionsOpened">
-    <app-question></app-question>
+    <app-question [allQuestions]="getAllQuestions"></app-question>
   </ng-container>
   <ng-container *ngIf="isQuizFinished && startedQuiz && !isInstructionsOpened">
     <app-result [applicationTheme]="theme"></app-result>
