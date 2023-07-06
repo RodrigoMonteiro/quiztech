@@ -1,9 +1,9 @@
 <div class="card-container">
   <ng-container *ngIf="startedQuiz && !isQuizFinished && !isInstructionsOpened">
-    <app-question [allQuestions]="getAllQuestions"></app-question>
+    <app-question [questionsByAttributesSelected]="questionsFiltred"></app-question>
   </ng-container>
   <ng-container *ngIf="isQuizFinished && startedQuiz && !isInstructionsOpened">
-    <app-result [applicationTheme]="theme"></app-result>
+    <app-result [applicationTheme]="theme" (shuffleAlternatives)="handleShuffleQuestionAlternatives()"></app-result>
   </ng-container>
   <ng-container *ngIf="isInstructionsOpened">
     <app-instructions (handleBackOptionsCard)="handleChangeInstrucutonStatus()"></app-instructions>

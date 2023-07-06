@@ -4,16 +4,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ArrayOperationsService {
-
   constructor() {}
 
   // Shuffle elements of a finite array using the Fisher Yates Method
-  handleRandomArrayElements(array: string[]) {
+  handleRandomArrayElements(array: string[]): string[] {
     for (let i = array.length - 1; i > 0; i--) {
-      let j = Math.floor(Math.random() * (i + 1));
-      let k = array[i];
-      array[i] = array[j];
-      array[j] = k;
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
     }
+    return array;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Question } from '../../model/questions';
 import { ButtonSelectionService } from '../../services/button-selection/button-selection.service';
 import { QuestionDataService } from '../../services/question/question-data/question-data.service';
@@ -8,11 +8,11 @@ import { QuestionDataService } from '../../services/question/question-data/quest
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.scss'],
 })
-export class QuestionComponent implements OnChanges, OnInit {
-  @Input() allQuestions: Question[] = [];
+export class QuestionComponent implements  OnInit {
+
+  @Input() questionsByAttributesSelected: Question[] = [];
 
   questionIndex: number = 0;
-  questionsByAttributesSelected: Question[] = [];
 
   area: string = '';
   tech: string = '';
@@ -22,9 +22,6 @@ export class QuestionComponent implements OnChanges, OnInit {
     private btnService: ButtonSelectionService,
     private questionDataService: QuestionDataService
   ) {
-    this.handleGetAllQuestions();
-
-
 
     this.btnService.selectedArea.subscribe((area) => {
       this.area = area;
@@ -48,13 +45,6 @@ export class QuestionComponent implements OnChanges, OnInit {
     });
   }
 
-
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['allQuestions']) {
-      this.selectionQuestionsByAttributesSelected();
-    }
-  }
-
   handleNewSelectedAlternative(questionIndex: number, newValue: string) {
     this.questionDataService.handleChangeSelectedAlternativeQuestion(
       questionIndex,
@@ -66,22 +56,10 @@ export class QuestionComponent implements OnChanges, OnInit {
     return String.fromCharCode(65 + index);
   }
 
-  handleGetAllQuestions() {
-    this.selectionQuestionsByAttributesSelected();
-  }
-
   selectectedAlternative(index: number): string {
     return this.questionDataService.getAlternativeSelected(index);
   }
 
-  selectionQuestionsByAttributesSelected() {
-    this.questionsByAttributesSelected = this.allQuestions.filter(
-      (question) =>
-        question.area === this.area &&
-        question.subject === this.tech &&
-        question.difficult === this.difficult
-    );
-  }
 
   handleNextQuestion() {
     this.questionIndex = this.questionIndex >= 9 ? 9 : this.questionIndex + 1;

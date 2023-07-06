@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { ArrayOperationsService } from './../../services/util/array-operations.service';
+import { Component, Input, OnInit } from '@angular/core';
 import { ButtonSelectionService } from '../../services/button-selection/button-selection.service';
 import { Question } from '../../model/questions';
 import { QuestionService } from '../../services/question/question.service';
@@ -8,9 +9,12 @@ import { QuestionService } from '../../services/question/question.service';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
 })
-export class CardComponent {
+export class CardComponent implements OnInit {
+
   @Input() theme: string = '';
+
   getAllQuestions: Question[] = [];
+  questionsFiltred: Question[] = [];
 
   startedQuiz: boolean = false;
   isSelectedAllOptions: boolean = false;
@@ -18,11 +22,10 @@ export class CardComponent {
   isInstructionsOpened: boolean = false;
 
   constructor(
+    private arrayOperationsService: ArrayOperationsService,
     private btnService: ButtonSelectionService,
     private questionService: QuestionService
   ) {
-    this.handleGetAllQuestions();
-
     this.btnService.isSelectedAllOptions.subscribe((value) => {
       this.isSelectedAllOptions = value;
     });
@@ -34,19 +37,45 @@ export class CardComponent {
     });
   }
 
+  ngOnInit() {
+    this.handleGetAllQuestions();
+  }
+
   handleGetAllQuestions() {
     this.questionService.listQuestion().subscribe((questions) => {
-      this.getAllQuestions = questions
+      this.getAllQuestions = questions;
     });
-
   }
 
   handleSendStartQuiz() {
     this.btnService.setQuizStart();
     this.btnService.setRemoveFinishQuiz();
+    this.handleFilterQuestionsByAttributesSelected();
   }
 
   handleChangeInstrucutonStatus() {
     this.isInstructionsOpened = !this.isInstructionsOpened;
+  }
+
+  handleFilterQuestionsByAttributesSelected() {
+    this.questionsFiltred = this.getAllQuestions.filter(
+      (element) =>
+        element.area === this.btnService.selectedArea.value &&
+        element.subject === this.btnService.selectedSubject.value &&
+        element.difficult === this.btnService.selectedDifficult.value
+    );
+  }
+
+  handleShuffleQuestionAlternatives() {
+    this.questionsFiltred.forEach((question) => {
+      question.alternatives =
+        this.arrayOperationsService.handleRandomArrayElements([
+          ...question.alternatives,
+        ]);
+    });
+  }
+
+  handleShuffleQuestions(){
+
   }
 }
