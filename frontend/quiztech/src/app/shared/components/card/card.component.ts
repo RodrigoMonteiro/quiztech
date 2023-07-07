@@ -10,7 +10,6 @@ import { QuestionService } from '../../services/question/question.service';
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
-
   @Input() theme: string = '';
 
   getAllQuestions: Question[] = [];
@@ -66,7 +65,8 @@ export class CardComponent implements OnInit {
     );
   }
 
-  handleShuffleQuestionAlternatives() {
+  handleShuffleQuestionsAndAlternatives() {
+     this.handleShuffleQuestions();
     this.questionsFiltred.forEach((question) => {
       question.alternatives =
         this.arrayOperationsService.handleRandomArrayElements([
@@ -75,7 +75,10 @@ export class CardComponent implements OnInit {
     });
   }
 
-  handleShuffleQuestions(){
-
+  handleShuffleQuestions() {
+    this.questionsFiltred =
+      this.arrayOperationsService.handleRandomArrayElements([
+        ...this.questionsFiltred,
+      ]);
   }
 }

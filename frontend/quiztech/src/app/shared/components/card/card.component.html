@@ -3,7 +3,7 @@
     <app-question [questionsByAttributesSelected]="questionsFiltred"></app-question>
   </ng-container>
   <ng-container *ngIf="isQuizFinished && startedQuiz && !isInstructionsOpened">
-    <app-result [applicationTheme]="theme" (shuffleAlternatives)="handleShuffleQuestionAlternatives()"></app-result>
+    <app-result [applicationTheme]="theme" (shuffleAlternatives)="handleShuffleQuestionsAndAlternatives()"></app-result>
   </ng-container>
   <ng-container *ngIf="isInstructionsOpened">
     <app-instructions (handleBackOptionsCard)="handleChangeInstrucutonStatus()"></app-instructions>
